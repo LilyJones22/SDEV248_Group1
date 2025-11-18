@@ -246,8 +246,6 @@ Source: ProjectTimeline.docx
 
 ---
 
-## One-Page Cheatsheet
-
 ### Lily (Art & Story)
 - First: sprites, tiles, story text  
 - Later: cutscenes, UI, dialogue box  
