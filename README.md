@@ -1,4 +1,4 @@
-# Zelda-Inspired Dungeon Project  
+# Zelda Dungeon Project  
 ### SDEV 255 — Group Project  
 A 3-room top-down dungeon game built in **Godot**.  
 Created by **Lilly**, **Jacob**, and **Krystal**.
