@@ -1,7 +1,7 @@
 # Zelda Dungeon Project  
 ### SDEV 255 — Group Project  
 A 3-room top-down dungeon game built in **Godot**.  
-Created by **Lilly**, **Jacob**, and **Krystal**.
+Created by **Lily**, **Jacob**, and **Krystal**.
 
 ---
 
@@ -23,7 +23,7 @@ This project demonstrates our understanding of tilemaps, scene transitions, basi
 
 # Team Roles
 
-## Lilly — Role 3: Art, UI & Story  
+## Lily — Role 3: Art, UI & Story  
 - Created all pixel art assets  
   - Player, NPC, enemies  
   - Floor tiles, wall tiles, obstacles  
