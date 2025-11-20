@@ -1,0 +1,122 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwegcklkalytm"]
+
+[ext_resource type="Texture2D" uid="uid://bi1qpnp6bcfob" path="res://sprites/npc.png" id="1_6qalh"]
+[ext_resource type="Script" uid="uid://ysdplnhsoj5f" path="res://cutscenes/win.gd" id="1_kxch0"]
+[ext_resource type="Texture2D" uid="uid://bjs2ve4arxnvw" path="res://sprites/player.png" id="2_kxch0"]
+
+[sub_resource type="Animation" id="Animation_ddi43"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wizzard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(807, 550)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hat:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-154, 552)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:visible_characters")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_p7p3q"]
+resource_name = "win"
+length = 5.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Wizzard:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(807, 550)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hat:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-154, 552), Vector2(442.99994, 552.00006)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:visible_characters")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5, 3, 3.25, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 0, 7, 7, 33]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ynf3q"]
+_data = {
+&"RESET": SubResource("Animation_ddi43"),
+&"win": SubResource("Animation_p7p3q")
+}
+
+[node name="Win" type="Node"]
+script = ExtResource("1_kxch0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ynf3q")
+}
+
+[node name="Wizzard" type="Sprite2D" parent="."]
+position = Vector2(807, 550)
+scale = Vector2(8, 8)
+texture = ExtResource("1_6qalh")
+
+[node name="Hat" type="Sprite2D" parent="."]
+position = Vector2(-154, 552)
+scale = Vector2(7, 7)
+texture = ExtResource("2_kxch0")
+hframes = 3
+vframes = 3
+
+[node name="Label" type="Label" parent="."]
+offset_left = 356.0
+offset_top = 282.0
+offset_right = 852.0
+offset_bottom = 395.0
+theme_override_font_sizes/font_size = 40
+text = "Oh hat!
+I'm so glad you found me!"
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
