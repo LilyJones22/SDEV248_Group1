@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://bigqc5itccrws"]
+
+[ext_resource type="Script" uid="uid://df70re0hdjg5s" path="res://scripts/main.gd" id="1_cy3un"]
+[ext_resource type="PackedScene" uid="uid://dwegcklkalytm" path="res://cutscenes/win.tscn" id="2_ckfhf"]
+[ext_resource type="PackedScene" uid="uid://bo508ldx80pmr" path="res://cutscenes/lose.tscn" id="3_t7n8x"]
+[ext_resource type="PackedScene" uid="uid://0tcghxgxnc53" path="res://gameplay/player.tscn" id="4_16ptp"]
+[ext_resource type="PackedScene" uid="uid://xfxtw2hk1072" path="res://gameplay/door.tscn" id="5_ckfhf"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_cy3un")
+win_scene = ExtResource("2_ckfhf")
+lose_scene = ExtResource("3_t7n8x")
+
+[node name="Player" parent="." instance=ExtResource("4_16ptp")]
+position = Vector2(542, 410)
+
+[node name="Door1-2" parent="." instance=ExtResource("5_ckfhf")]
+position = Vector2(1112, 324)

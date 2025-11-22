@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bi1qpnp6bcfob" path="res://sprites/npc.png" id="1_x3nyi"]
 [ext_resource type="Script" uid="uid://dwoibb37e0gvo" path="res://cutscenes/opening.gd" id="1_xo4io"]
-[ext_resource type="PackedScene" uid="uid://bigqc5itccrws" path="res://gameplay/main.tscn" id="2_pb3xr"]
+[ext_resource type="PackedScene" uid="uid://bigqc5itccrws" path="res://gameplay/Level1.tscn" id="2_pb3xr"]
 
 [sub_resource type="Animation" id="Animation_xo4io"]
 resource_name = "opening"
