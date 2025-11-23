@@ -1,24 +1,21 @@
 extends CharacterBody2D
 
-@export var speed: float = 80.0
+@export var speed: float = 60.0
 
 var waypoints: Array[Vector2] = []
 var current_index: int = 0
 
 func _ready() -> void:
-	# Collect all children named Waypoint*
 	for child in get_children():
 		if child is Marker2D and child.name.begins_with("Waypoint"):
 			waypoints.append(child.global_position)
 
 	if waypoints.size() == 0:
 		push_warning("Enemy has no waypoints!")
-		return
+	else:
+		global_position = waypoints[0]
 
-	# Start at the first waypoint
-	global_position = waypoints[0]
-
-	# Connect the hurtbox for damaging the player
+	# Connect the hurtbox signal
 	$Hurtbox.body_entered.connect(_on_hurtbox_body_entered)
 
 
@@ -31,13 +28,20 @@ func _physics_process(delta: float) -> void:
 	velocity = dir * speed
 	move_and_slide()
 
-	# If close to the target waypoint, move to next
 	if global_position.distance_to(target_pos) < 4.0:
 		current_index += 1
 		if current_index >= waypoints.size():
-			current_index = 0  # loop forever
+			current_index = 0
 
-
+# debugging health problems
 func _on_hurtbox_body_entered(body: Node) -> void:
-	if body.has_method("take_damage"):
-		body.take_damage(1)
+	print("HURTBOX HIT:", body.name)
+
+
+	if body.is_in_group("player"):
+		if "health" in body:
+			body.health -= 1
+			print("Enemy damaged player, new health:", body.health)
+
+			if body.health <= 0:
+				get_tree().change_scene_to_file("res://cutscenes/lose.tscn")

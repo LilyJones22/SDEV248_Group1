@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 
 func take_damage(amount: int) -> void:
 	health -= amount
-	print("Ouch! Health: %d" % health)
+	print("Ouch! Health now: ", health)
 
 	if health <= 0:
 		get_tree().change_scene_to_file("res://cutscenes/lose.tscn")
