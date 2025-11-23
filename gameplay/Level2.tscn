@@ -1,8 +1,118 @@
-[gd_scene load_steps=2 format=3 uid="uid://27bxaa56amnd"]
+[gd_scene load_steps=12 format=3 uid="uid://27bxaa56amnd"]
 
+[ext_resource type="Texture2D" uid="uid://cy2hucd7oxjxl" path="res://sprites/Level2BG.png" id="1_fvaqa"]
 [ext_resource type="PackedScene" uid="uid://0tcghxgxnc53" path="res://gameplay/player.tscn" id="1_t8ehy"]
+[ext_resource type="PackedScene" uid="uid://xfxtw2hk1072" path="res://gameplay/door.tscn" id="2_8ywno"]
+[ext_resource type="PackedScene" uid="uid://buv11k73y0vh1" path="res://gameplay/HUD.tscn" id="3_lom1p"]
+[ext_resource type="PackedScene" uid="uid://csrdjwm832xdn" path="res://gameplay/enemy.tscn" id="4_50gcw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fvaqa"]
+size = Vector2(1162, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8dt36"]
+size = Vector2(66, 424)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtfi8"]
+size = Vector2(148, 440)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7xfb"]
+size = Vector2(1153, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85d13"]
+size = Vector2(89, 165)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqh74"]
+size = Vector2(514, 80)
 
 [node name="Level2" type="Node2D"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(576, 323)
+scale = Vector2(4.5, 3.6111112)
+texture = ExtResource("1_fvaqa")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("1_t8ehy")]
-position = Vector2(298, 183)
+position = Vector2(128, 328)
+
+[node name="Door" parent="." instance=ExtResource("2_8ywno")]
+position = Vector2(72, 328)
+target_scene = "uid://bigqc5itccrws"
+
+[node name="Door2" parent="." instance=ExtResource("2_8ywno")]
+position = Vector2(576, 86)
+target_scene = "uid://dsa4scbfwacrd"
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_lom1p")]
+
+[node name="Enemy" parent="." instance=ExtResource("4_50gcw")]
+position = Vector2(552, 160)
+
+[node name="Waypoint1" type="Marker2D" parent="Enemy"]
+position = Vector2(-104, 12)
+
+[node name="Waypoint2" type="Marker2D" parent="Enemy"]
+position = Vector2(172, 28)
+
+[node name="Waypoint3" type="Marker2D" parent="Enemy"]
+position = Vector2(-184, 172)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_50gcw")]
+position = Vector2(200, 168)
+
+[node name="Waypoint4" type="Marker2D" parent="Enemy2"]
+position = Vector2(96, 80)
+
+[node name="Waypoint5" type="Marker2D" parent="Enemy2"]
+position = Vector2(300, 112)
+
+[node name="Waypoint6" type="Marker2D" parent="Enemy2"]
+position = Vector2(212, 164)
+
+[node name="Enemy3" parent="." instance=ExtResource("4_50gcw")]
+position = Vector2(968, 360)
+
+[node name="Waypoint7" type="Marker2D" parent="Enemy3"]
+position = Vector2(-352, 64)
+
+[node name="Waypoint8" type="Marker2D" parent="Enemy3"]
+position = Vector2(-200, 8)
+
+[node name="Waypoint9" type="Marker2D" parent="Enemy3"]
+position = Vector2(-400, -80)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="TopWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(571, 23)
+shape = SubResource("RectangleShape2D_fvaqa")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(23, 316)
+shape = SubResource("RectangleShape2D_8dt36")
+
+[node name="RightWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1082, 316)
+shape = SubResource("RectangleShape2D_xtfi8")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(575.5, 588)
+shape = SubResource("RectangleShape2D_l7xfb")
+
+[node name="LefWall2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(99.5, 189.5)
+shape = SubResource("RectangleShape2D_85d13")
+
+[node name="LefWall3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(96, 448)
+shape = SubResource("RectangleShape2D_85d13")
+
+[node name="TopWall2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(247, 88)
+shape = SubResource("RectangleShape2D_oqh74")
+
+[node name="TopWall3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(896, 96)
+shape = SubResource("RectangleShape2D_oqh74")

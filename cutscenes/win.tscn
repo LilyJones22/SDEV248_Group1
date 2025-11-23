@@ -1,122 +1,68 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwegcklkalytm"]
+[gd_scene load_steps=5 format=3 uid="uid://dwegcklkalytm"]
 
-[ext_resource type="Texture2D" uid="uid://bi1qpnp6bcfob" path="res://sprites/npc.png" id="1_6qalh"]
 [ext_resource type="Script" uid="uid://ysdplnhsoj5f" path="res://cutscenes/win.gd" id="1_kxch0"]
-[ext_resource type="Texture2D" uid="uid://bjs2ve4arxnvw" path="res://sprites/player.png" id="2_kxch0"]
+[ext_resource type="Texture2D" uid="uid://fypp71gmgqaj" path="res://sprites/level3BG.png" id="2_kxch0"]
+[ext_resource type="PackedScene" uid="uid://bufgi4p3ayajp" path="res://gameplay/npc.tscn" id="3_p7p3q"]
+[ext_resource type="Texture2D" uid="uid://bjs2ve4arxnvw" path="res://sprites/player.png" id="4_p7p3q"]
 
-[sub_resource type="Animation" id="Animation_ddi43"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Wizzard:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(807, 550)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hat:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-154, 552)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Label:visible_characters")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_p7p3q"]
-resource_name = "win"
-length = 5.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Wizzard:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(807, 550)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hat:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-154, 552), Vector2(442.99994, 552.00006)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Label:visible_characters")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.5, 3, 3.25, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0, 0, 7, 7, 33]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ynf3q"]
-_data = {
-&"RESET": SubResource("Animation_ddi43"),
-&"win": SubResource("Animation_p7p3q")
-}
-
-[node name="Win" type="Node"]
+[node name="Win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_kxch0")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_ynf3q")
-}
-
-[node name="Wizzard" type="Sprite2D" parent="."]
-position = Vector2(807, 550)
-scale = Vector2(8, 8)
-texture = ExtResource("1_6qalh")
-
-[node name="Hat" type="Sprite2D" parent="."]
-position = Vector2(-154, 552)
-scale = Vector2(7, 7)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(576, 323)
+scale = Vector2(4.5, 3.6111112)
 texture = ExtResource("2_kxch0")
+
+[node name="LabelStory" type="Label" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 384.0
+offset_right = 705.0
+offset_bottom = 407.0
+text = "Reunited at last!"
+horizontal_alignment = 1
+
+[node name="LabelStory2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 260.0
+offset_top = 174.0
+offset_right = 890.0
+offset_bottom = 221.0
+theme_override_colors/font_color = Color(1, 0.3372549, 0.07058824, 1)
+theme_override_font_sizes/font_size = 34
+text = "OH HAT, I'M SO GLAD YOU FOUND ME!"
+
+[node name="LabelStory3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 416.0
+offset_right = 946.0
+offset_bottom = 439.0
+text = "Together, they leave the dungeon behind, ready for new (hopefully less disastrous) experiments"
+
+[node name="LabelPromt" type="Label" parent="."]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 474.0
+offset_right = 677.0
+offset_bottom = 497.0
+text = "Press ENTER to play again."
+
+[node name="NPC" parent="." instance=ExtResource("3_p7p3q")]
+position = Vector2(576.00006, 319.00003)
+scale = Vector2(5, 5)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(580.99994, 257.5)
+scale = Vector2(2.7499988, 2.34375)
+texture = ExtResource("4_p7p3q")
 hframes = 3
 vframes = 3
-
-[node name="Label" type="Label" parent="."]
-offset_left = 356.0
-offset_top = 282.0
-offset_right = 852.0
-offset_bottom = 395.0
-theme_override_font_sizes/font_size = 40
-text = "Oh hat!
-I'm so glad you found me!"
-horizontal_alignment = 1
-visible_characters = 0
-visible_ratio = 0.0
+frame = 8

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bufgi4p3ayajp"]
+
+[ext_resource type="Script" uid="uid://chtmfgt3lwr0" path="res://gameplay/npc.gd" id="1_kehmq"]
+[ext_resource type="Texture2D" uid="uid://bi1qpnp6bcfob" path="res://sprites/npc.png" id="2_5udqo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6traa"]
+
+[node name="NPC" type="Node2D"]
+script = ExtResource("1_kehmq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5udqo")
+
+[node name="InteractArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource("RectangleShape2D_6traa")

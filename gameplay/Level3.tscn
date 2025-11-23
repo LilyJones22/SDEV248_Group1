@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://dsa4scbfwacrd"]
+
+[ext_resource type="Texture2D" uid="uid://fypp71gmgqaj" path="res://sprites/level3BG.png" id="1_gesot"]
+[ext_resource type="PackedScene" uid="uid://0tcghxgxnc53" path="res://gameplay/player.tscn" id="1_yphqy"]
+[ext_resource type="PackedScene" uid="uid://xfxtw2hk1072" path="res://gameplay/door.tscn" id="2_jo1o8"]
+[ext_resource type="PackedScene" uid="uid://bufgi4p3ayajp" path="res://gameplay/npc.tscn" id="3_d0q11"]
+[ext_resource type="PackedScene" uid="uid://buv11k73y0vh1" path="res://gameplay/HUD.tscn" id="3_gesot"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx4ov"]
+size = Vector2(1162, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vmi3l"]
+size = Vector2(154, 424)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlikx"]
+size = Vector2(148, 440)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0lpd"]
+size = Vector2(1153, 128)
+
+[node name="Level3" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(576, 323)
+scale = Vector2(4.5, 3.6111112)
+texture = ExtResource("1_gesot")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_yphqy")]
+position = Vector2(576, 496)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_gesot")]
+
+[node name="Door" parent="." instance=ExtResource("2_jo1o8")]
+position = Vector2(576, 514)
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="TopWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(571, 51)
+shape = SubResource("RectangleShape2D_tx4ov")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(67, 316)
+shape = SubResource("RectangleShape2D_vmi3l")
+
+[node name="RightWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1082, 316)
+shape = SubResource("RectangleShape2D_wlikx")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(568, 584)
+shape = SubResource("RectangleShape2D_e0lpd")
+
+[node name="NPC" parent="." instance=ExtResource("3_d0q11")]
+position = Vector2(576, 319)
+scale = Vector2(5, 5)

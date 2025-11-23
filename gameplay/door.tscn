@@ -2,16 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cffkw8w1v2odm" path="res://gameplay/door.gd" id="1_55pfe"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_31e6g"]
-size = Vector2(84, 80)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_55pfe"]
+size = Vector2(58, 58)
 
-[node name="Door" type="Node2D"]
-
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Door" type="Area2D"]
 script = ExtResource("1_55pfe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, 0)
-shape = SubResource("RectangleShape2D_31e6g")
-
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_55pfe")
