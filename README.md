@@ -2,6 +2,7 @@
 ### SDEV 255 — Group Project  
 A 3-room top-down dungeon game built in **Godot**.  
 Created by **Lily**, **Jacob**, and **Krystal**.
+Watch it in action: https://youtu.be/QOpZMp1SF6w
 
 ---
 
