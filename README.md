@@ -1,5 +1,5 @@
 # Zelda Dungeon Project  
-### SDEV 255 — Group Project  
+### SDEV 248 — Group Project  
 A 3-room top-down dungeon game built in **Godot**.  
 Created by **Lily**, **Jacob**, and **Krystal**.
 <p>Watch it in action: https://youtu.be/QOpZMp1SF6w</p>
